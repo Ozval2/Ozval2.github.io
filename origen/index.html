@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Origen · GUABLID</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Antes de los objetos, diseñamos paisajes. De FORA a Guachapala, y de ahí a GUABLID.">
+<meta property="og:title" content="Origen · GUABLID">
+<meta property="og:description" content="Antes de los objetos, diseñamos paisajes.">
+<meta property="og:image" content="/portada.png">
+<meta name="theme-color" content="#15191D">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-6 -6 112 112'%3E%3Crect x='-6' y='-6' width='112' height='112' fill='%2315191D'/%3E%3Cpath d='M 88 44 C 92 20 70 6 50 6 C 22 6 8 28 8 50 C 8 76 26 94 50 94 C 72 94 84 80 84 66 C 84 52 60 50 10 44' fill='none' stroke='%23EFE6D2' stroke-width='11' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+/* Concepto: el recorrido real, de la ciudad al taller, cuesta abajo hacia el valle del Paute.
+   Una sola línea continua (como el trazo del símbolo) une cada parada. */
+:root{
+  --fondo:#15191D;      /* el de guablid.com */
+  --claro:#EFE6D2;      /* crema de la marca */
+  --acento:#C4703F;     /* coral del acabado */
+  --suave:rgba(239,230,210,.72);
+  --tenue:rgba(239,230,210,.46);
+  --linea:rgba(239,230,210,.16);
+  --f:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--fondo);color:var(--claro);font-family:var(--f);font-weight:300;-webkit-font-smoothing:antialiased;line-height:1.7;overflow-x:hidden;
+  padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.14;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{max-width:760px;margin:0 auto;position:relative;z-index:1}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:1px solid var(--acento);outline-offset:4px}
+
+/* Encabezado */
+.top{display:flex;justify-content:space-between;align-items:center;padding-block:22px;border-bottom:1px solid var(--linea)}
+.top a{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:13px;letter-spacing:.24em}
+.top svg{width:34px;height:34px}
+.top .volver{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--tenue)}
+.top .volver:hover{color:var(--claro)}
+
+/* Apertura */
+.apertura{padding-block:80px 56px;display:flex;flex-direction:column;gap:28px}
+.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--acento);margin:0}
+h1{font-weight:300;font-size:clamp(38px,9vw,74px);line-height:1.04;letter-spacing:-.015em;margin:0;text-wrap:balance;max-width:13ch}
+h1 em{font-style:italic;color:var(--acento)}
+.intro{font-size:clamp(17px,2.6vw,20px);color:var(--suave);max-width:36ch;margin:0}
+
+/* Recorrido */
+.recorrido{position:relative;padding-block:24px 40px;display:flex;flex-direction:column;gap:72px}
+.recorrido::before{content:"";position:absolute;left:11px;top:34px;bottom:60px;width:1px;background:linear-gradient(var(--linea),var(--acento) 55%,var(--linea))}
+.parada{display:grid;grid-template-columns:23px minmax(0,1fr);gap:22px;align-items:start}
+.nodo{width:23px;height:23px;border-radius:50%;border:1px solid var(--acento);background:var(--fondo);margin-top:8px;display:grid;place-items:center}
+.nodo::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--acento);transform:scale(0);transition:transform .5s ease}
+.parada.visto .nodo::after{transform:scale(1)}
+.txt{display:flex;flex-direction:column;gap:14px;min-width:0}
+.dato{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--tenue);font-variant-numeric:tabular-nums;display:flex;flex-wrap:wrap;gap:6px 16px}
+.dato b{font-weight:400;color:var(--claro)}
+h2{font-weight:300;font-size:clamp(26px,5vw,38px);line-height:1.15;margin:0;text-wrap:balance;letter-spacing:-.005em}
+.txt p{margin:0;font-size:17px;color:var(--suave);max-width:58ch}
+.txt p strong{font-weight:400;color:var(--claro)}
+
+/* Cita del nombre */
+.palabra{margin:6px 0 0;padding:26px 0 0;border-top:1px solid var(--linea);display:grid;gap:10px}
+.palabra .w{font-size:clamp(40px,10vw,64px);letter-spacing:.2em;line-height:1;font-weight:300}
+.palabra .def{font-size:14px;color:var(--tenue);font-style:italic}
+
+.cita{margin:10px 0;padding:22px 0 22px 22px;border-left:1px solid var(--acento);display:grid;gap:12px}
+.cita p{font-style:italic;font-size:clamp(20px,3.8vw,26px)!important;line-height:1.4;color:var(--claro)!important;max-width:30ch!important}
+.cita cite{font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--tenue)}
+/* Cifras del lugar */
+.cifras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.cifras div{padding:18px 4px;display:flex;flex-direction:column;gap:4px}
+.cifras div + div{border-left:1px solid var(--linea);padding-left:16px}
+.cifras b{font-weight:300;font-size:clamp(22px,4.6vw,30px);font-variant-numeric:tabular-nums;line-height:1.1}
+.cifras span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tenue)}
+
+/* Cierre */
+.cierre{padding-block:56px 40px;border-top:1px solid var(--linea);display:flex;flex-direction:column;gap:28px}
+.cierre p.grande{font-size:clamp(24px,4.6vw,34px);line-height:1.3;margin:0;max-width:22ch;text-wrap:balance}
+.acciones{display:flex;flex-wrap:wrap;gap:12px}
+.btn{flex:1 1 220px;display:inline-flex;justify-content:center;align-items:center;gap:9px;padding:15px 20px;border:1px solid rgba(239,230,210,.28);border-radius:2px;text-decoration:none;font-size:14px;letter-spacing:.06em;transition:background .18s,color .18s,border-color .18s}
+.btn:hover{background:var(--claro);color:var(--fondo);border-color:var(--claro)}
+.btn.primero{background:var(--claro);color:var(--fondo);border-color:var(--claro);font-weight:400}
+.btn.primero:hover{background:var(--acento);border-color:var(--acento)}
+footer{padding-block:20px 44px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--tenue);line-height:2;text-align:center}
+
+@media (min-width:760px){
+  .recorrido::before{left:15px}
+  .parada{grid-template-columns:31px minmax(0,1fr);gap:34px}
+  .nodo{width:31px;height:31px}
+}
+@media (prefers-reduced-motion:reduce){.nodo::after{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a href="/" aria-label="GUABLID, inicio">
+    <svg viewBox="-6 -6 112 112" aria-hidden="true"><path d="M 88 44 C 92 20 70 6 50 6 C 22 6 8 28 8 50 C 8 76 26 94 50 94 C 72 94 84 80 84 66 C 84 52 60 50 10 44" fill="none" stroke="#EFE6D2" stroke-width="11" stroke-linecap="round"/></svg>
+    GUABLID
+  </a>
+  <a class="volver" href="/">Inicio</a>
+</header>
+
+<section class="apertura">
+  <p class="eyebrow">Origen</p>
+  <h1>Antes de los objetos, <em>diseñamos paisajes.</em></h1>
+  <p class="intro">GUABLID no empezó en un taller. Empezó en los paisajes que diseñamos, en las plantas que cultivamos y en un camino que baja de la ciudad al valle.</p>
+</section>
+
+<main class="recorrido">
+
+  <article class="parada">
+    <span class="nodo" aria-hidden="true"></span>
+    <div class="txt">
+      <div class="dato"><span><b>Cuenca</b></span><span>2.560 m</span><span>El estudio</span></div>
+      <h2>Todo empieza en FORA.</h2>
+      <p><strong>FORA Arquitectura del Paisaje</strong> diseña, construye y cuida jardines. Sebastián Torres, arquitecto paisajista e ingeniero agrónomo, y Osvaldo Pérez, que lleva la empresa, llevan años pensando cada espacio exterior desde la planta hacia afuera.</p>
+      <p>En cada proyecto llegaba un momento en que el paisaje pedía algo más: una pieza que lo ordenara, un volumen que recibiera la luz, un punto donde detener la mirada. Pocas veces lo encontrábamos hecho.</p>
+    </div>
+  </article>
+
+  <article class="parada">
+    <span class="nodo" aria-hidden="true"></span>
+    <div class="txt">
+      <div class="dato"><span><b>Guachapala</b></span><span>Valle del Paute</span><span>Los viveros</span></div>
+      <h2>Donde crecen nuestras plantas.</h2>
+      <p>Cuesta abajo, en Guachapala, están los viveros de FORA. Ahí producimos las plantas que después llegan a cada proyecto. Es una tierra de agricultores de ladera, templada y húmeda casi todo el año.</p>
+      <div class="cifras" role="list">
+        <div role="listitem"><b>2.200</b><span>a 3.280 m</span></div>
+        <div role="listitem"><b>17 °C</b><span>promedio</span></div>
+        <div role="listitem"><b>83 %</b><span>humedad</span></div>
+      </div>
+      <p>Ese mismo clima es bueno para el concreto: lo deja curar despacio, sin apuro y sin fisuras. Por eso el taller está aquí, junto a las plantas.</p>
+    </div>
+  </article>
+
+  <article class="parada">
+    <span class="nodo" aria-hidden="true"></span>
+    <div class="txt">
+      <div class="dato"><span><b>El viaje</b></span><span>El oficio</span></div>
+      <h2>Fuimos a aprender con las manos.</h2>
+      <p>Buscando esas piezas para nuestros proyectos encontramos algo mejor: la posibilidad de crearlas. Viajamos, investigamos y aprendimos del trabajo artesanal, de sus técnicas y de sus acabados.</p>
+      <p>Volvimos con una idea simple: hacer piezas a la escala de los jardines que diseñamos.</p>
+    </div>
+  </article>
+
+  <article class="parada">
+    <span class="nodo" aria-hidden="true"></span>
+    <div class="txt">
+      <div class="dato"><span><b>Guablid</b></span><span>Caserío de Guachapala</span><span>El nombre</span></div>
+      <h2>Un nombre que conserva el lugar.</h2>
+      <p>Guablid es un caserío vecino al taller. Su nombre viene de la lengua cañari, que dejó de hablarse hace siglos, y nadie ha podido decirnos qué significa. Aparece en el himno de Guachapala, junto a Romeral y San Pedro.</p>
+      <div class="palabra">
+        <span class="w">GUABLID</span>
+        <span class="def">El significado se fue con la lengua. El lugar sigue ahí.</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="parada">
+    <span class="nodo" aria-hidden="true"></span>
+    <div class="txt">
+      <div class="dato"><span><b>Tu espacio</b></span><span>La pieza</span></div>
+      <h2>Objetos que ordenan un paisaje.</h2>
+      <p>En un jardín, un objeto bien ubicado cambia todo lo que lo rodea. Detiene la mirada, marca un recorrido, recibe la luz de la tarde. Con esa mirada de paisajistas diseñamos cada pieza.</p>
+      <p>Algunas reciben una planta y crecen con ella. Otras se sostienen solas, como escultura, y el paisaje se vuelve su fondo. En los dos casos, la pieza le da al lugar un centro.</p>
+      <p>Cada una sale del molde a mano. El concreto, el agua y el clima dejan en su superficie una huella que no se repite, y por eso no hay dos iguales.</p>
+      <blockquote class="cita">
+        <p>“Un paisaje emocional te hace algo: sientes más de lo que ves.”</p>
+        <cite>Piet Oudolf · paisajista</cite>
+      </blockquote>
+      <p>Por eso diseñamos cada objeto como una obra que se completa en el paisaje: con su forma, su textura y la luz que lo cambia a lo largo del día.</p>
+    </div>
+  </article>
+
+</main>
+
+<section class="cierre">
+  <p class="grande">Objetos que habitan el paisaje.</p>
+  <div class="acciones">
+    <a class="btn primero" href="/espacio/">Mira las piezas en tu espacio</a>
+    <a class="btn" href="mailto:hola@guablid.com">Escríbenos · hola@guablid.com</a>
+  </div>
+</section>
+
+<footer>GUABLID · una marca de FORA Arquitectura del Paisaje<br>Guachapala · Ecuador</footer>
+
+</div>
+<script>
+(()=>{const ps=document.querySelectorAll('.parada');
+ if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){ps.forEach(p=>p.classList.add('visto'));return}
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}}),{rootMargin:'0px 0px -30% 0px'});
+ ps.forEach(p=>io.observe(p))})();
+</script>
+</body>
+</html>
