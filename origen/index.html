@@ -2,6 +2,13 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<script>
+/* Acceso solo para el equipo mientras el sitio está en proceso.
+   Para entrar: abrir una vez la dirección con ?equipo=gua-taller (queda recordado en ese navegador). */
+(function(){if(!/(^|\.)guablid\.com$/.test(location.hostname))return;var k='guablid-equipo',p=/[?&]equipo=gua-taller(&|$)/.test(location.search);
+try{if(p)localStorage.setItem(k,'1');if(p||localStorage.getItem(k)==='1')return}catch(e){if(p)return}location.replace('/')})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Origen · GUABLID</title>
 <meta name="claude:viewport-fit-sides" content="cover">
