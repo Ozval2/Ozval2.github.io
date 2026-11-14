@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GUABLID · Piezas para jardín</title>
-<meta name="description" content="Objetos que habitan el paisaje. Piezas de gran formato para jardines y terrazas. Guachapala, Ecuador.">
-<meta property="og:title" content="GUABLID · Piezas para jardín">
-<meta property="og:description" content="Objetos que habitan el paisaje. Piezas de gran formato para jardines y terrazas.">
+<title>GUABLID · Objetos que habitan el paisaje</title>
+<meta name="description" content="Objetos que habitan el paisaje. En proceso.">
+<meta property="og:title" content="GUABLID · Objetos que habitan el paisaje">
+<meta property="og:description" content="Objetos que habitan el paisaje. En proceso.">
 <meta property="og:image" content="/portada.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://guablid.com">
@@ -65,6 +65,7 @@
     line-height:1.35;
     margin:0;
     max-width:19ch;
+    text-wrap:balance;
     letter-spacing:.005em;
   }
   .texto{
@@ -104,6 +105,12 @@
   .btn.espacio{flex-basis:100%;background:var(--claro);border-color:var(--claro);color:var(--fondo);font-weight:400}
   .btn.espacio:hover{background:var(--acento);border-color:var(--acento);color:var(--fondo)}
   .btn.origen{flex-basis:100%;border-color:rgba(239,230,210,.6)}
+  .proceso{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .proceso .txt{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--acento);padding-left:.32em}
+  .proceso .barra{position:relative;display:block;width:120px;height:1px;background:rgba(239,230,210,.18);overflow:hidden}
+  .proceso .barra i{position:absolute;top:0;left:-40%;width:40%;height:1px;background:var(--claro);animation:avance 2.8s ease-in-out infinite}
+  @keyframes avance{0%{left:-40%}100%{left:100%}}
+  @media (prefers-reduced-motion:reduce){.proceso .barra i{animation:none;left:30%}}
   footer{
     position:relative;
     padding:0 24px 40px;
@@ -145,54 +152,13 @@
 
   <h1 class="lema">Objetos que habitan el paisaje.</h1>
 
-  <div class="acciones">
-    <a class="btn origen" href="/origen/">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-        <path d="M12 21V11"></path><path d="M12 13c0-4 3-6 7-6 0 4-3 6-7 6z"></path><path d="M12 15c0-3-2.5-5-6-5 0 3 2.5 5 6 5z"></path>
-      </svg>
-      Nuestro origen
-    </a>
-    <a class="btn espacio" href="/espacio/">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-        <path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"></path>
-        <path d="M9 9.5h6l-.9 6.5H9.9z"></path><path d="M8.6 9.5h6.8"></path>
-      </svg>
-      Mira las piezas en tu espacio
-    </a>
-    <a class="btn destacado" href="mailto:hola@guablid.com">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-        <rect x="2.5" y="5" width="19" height="14" rx="2"></rect><path d="M3 6.5l9 6 9-6"></path>
-      </svg>
-      Escríbenos
-    </a>
-    <a class="btn" href="https://instagram.com/guablid" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-        <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-        <circle cx="12" cy="12" r="4"></circle>
-        <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle>
-      </svg>
-      Instagram
-    </a>
-
-    <!--
-      WHATSAPP · para activarlo, borra estas dos líneas de comentario
-      y reemplaza 593XXXXXXXXX por el número con código de país, sin + ni espacios.
-
-    <a class="btn" href="https://wa.me/593XXXXXXXXX" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-        <path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.4-4.5A8.4 8.4 0 1 1 20.5 11.7z"></path>
-        <path d="M8.9 8.4c.3-.7.6-.7.9-.7h.7c.2 0 .5 0 .7.6l.8 1.9c.1.3 0 .5-.1.7l-.4.5c-.1.2-.3.4-.1.7a6 6 0 0 0 2.8 2.4c.3.1.5.1.7-.1l.6-.7c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.4.4.6a2 2 0 0 1-1.9 1.9c-1.6 0-4-1.1-5.6-2.9-1.4-1.5-2.3-3.4-2.3-4.6 0-.6.2-1.1.4-1.1z"></path>
-      </svg>
-      WhatsApp
-    </a>
-    -->
+  <div class="proceso" role="status">
+    <span class="barra" aria-hidden="true"><i></i></span>
+    <span class="txt">En proceso</span>
   </div>
 </main>
 
-<footer>
-  Guachapala · Ecuador<br>
-  hola@guablid.com
-</footer>
+<footer>hola@guablid.com</footer>
 
 </body>
 </html>
