@@ -49,7 +49,10 @@
   .muro{position:fixed;inset:0;z-index:-1;background:
       radial-gradient(ellipse 52% 58% at 50% 46%,rgba(21,25,29,.72),rgba(21,25,29,.25) 55%,rgba(21,25,29,0) 75%),
       linear-gradient(rgba(21,25,29,.55),rgba(21,25,29,.55)),
-      url(bahareque.jpg) center/cover no-repeat,#15191D;filter:saturate(.75)}
+      var(--muro) center/cover no-repeat,#15191D;filter:saturate(.75)}
+  .muro{--muro:url(bahareque.jpg)}
+  /* pantallas horizontales (computador, tablet acostada): la misma pared fotografiada en horizontal */
+  @media (orientation:landscape){.muro{--muro:url(bahareque-h.jpg)}}
   html{background:#15191D}
   body{background:transparent}
   .proceso .txt,footer{text-shadow:0 1px 3px rgba(10,12,14,.95),0 0 14px rgba(10,12,14,.85)}
