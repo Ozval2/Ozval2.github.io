@@ -45,6 +45,15 @@
     opacity:.16;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   }
+  /* fondo: pared de bahareque (barro y paja) de una casa de Cuenca */
+  .muro{position:fixed;inset:0;z-index:-1;background:
+      radial-gradient(ellipse 52% 58% at 50% 46%,rgba(21,25,29,.72),rgba(21,25,29,.25) 55%,rgba(21,25,29,0) 75%),
+      linear-gradient(rgba(21,25,29,.55),rgba(21,25,29,.55)),
+      url(bahareque.jpg) center/cover no-repeat,#15191D;filter:saturate(.75)}
+  html{background:#15191D}
+  body{background:transparent}
+  .proceso .txt,footer{text-shadow:0 1px 3px rgba(10,12,14,.95),0 0 14px rgba(10,12,14,.85)}
+  .lema{text-shadow:0 1px 3px rgba(10,12,14,.8)}
   main{
     flex:1;
     display:flex;
@@ -128,7 +137,7 @@
   }
 </style>
 </head>
-<body>
+<body><div class="muro" aria-hidden="true"></div>
 
 <main>
   <div class="marca">
